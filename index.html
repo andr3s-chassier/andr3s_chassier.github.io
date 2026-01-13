@@ -1,11 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>hehehe</title>
+    <title>Andrès Chassier Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    hihihi
+    <canvas id="neuro"></canvas>
+
+    <nav class="floating-nav">
+        <a href="#hero">Home</a>
+        <a href="#skills">Compétences</a>
+        <a href="#work">Projets</a>
+        <a href="#about">Contact</a>
+    </nav>
+
+    <header id="hero" class="fullscreen-section">
+        <div class="hero-content">
+            <h1>portfolio</h1>
+            <p class="subtitle">Andrès Chassier - MMI</p>
+        </div>
+        
+        <div class="scroll-indicator">
+            <span>↓</span>
+        </div>
+    </header>
+    <section id="skills" class="content-section">
+        <div class="container">
+            <h2>Compétences</h2>
+            
+
+            <div class="skills-grid">
+                <div class="skill-card water-flow-card" id="illustrator">
+                    <img src="images/illustrator.png" alt="illustrator logo" width="105%">
+                </div>
+                <div class="skill-card water-flow-card" id="photoshop">
+                    <img src="images/photoshop.png" alt="photoshop logo" width="105%">
+                </div>
+                <div class="skill-card water-flow-card" id="indesign">
+                    <img src="images/indesign.png" alt="indesign logo" width="105%">
+                </div>
+                <div class="skill-card water-flow-card" id="after-effect">
+                    <img src="images/after-effect.png" alt="after-effect logo" width="105%">
+                </div>
+                <div class="skill-card water-flow-card" id="animate">
+                    <img src="images/adobe-animate.png" alt="animate logo" width="105%">
+                </div>
+                <div class="skill-card water-flow-card" id="figma">
+                    <img src="images/figma_logo.png" alt="figma logo" width="105%">
+                </div>
+                <div class="skill-card water-flow-card" id="html">
+                    <img src="images/html.png" alt="html logo" width="100%">
+                </div>
+                <div class="skill-card water-flow-card" id="css">
+                    <img src="images/css.png" alt="css logo" width="100%">
+                </div>
+                <div class="skill-card water-flow-card" id="js">
+                    <img src="images/js.png" alt="js logo" width="99%">
+                </div>
+                <div class="skill-card water-flow-card" id="affinity">
+                    <img src="images/affinity_logo.png" alt="affinity logo" width="99%">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="work" class="content-section">
+        <div class="container">
+            <h2>Projets</h2>
+            <div class="grid-layout">
+                <div class="grid-item large" id="freemessage"><a href="https://freemessage.alwaysdata.net" target="_blank"><img src="images/free_message_blanc.png" alt="logo free message" width="100%"></a></div>
+                <div class="grid-item"></div>
+                <div class="grid-item" id="exidera"><a href="https://exidera.alwaysdata.net" target="_blank"><img src="images/logo_exidera.png" alt="logo exidera" width="100%"></a></div>
+                <div class="grid-item large"></div>
+                <div class="grid-item large"></div>
+                <div class="grid-item"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="about">
+        <p>Contact & Crédits</p>
+        <p></p>
+    </footer>
+<script src="script.js"></script>
 </body>
 </html>

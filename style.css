@@ -1,0 +1,382 @@
+/* //////////TYPO ET DA////////// */
+
+@import url('https://fonts.googleapis.com/css2?family=Danfo:ELSH@0..100&family=Fascinate&family=Fascinate+Inline&family=Limelight&family=Notable&family=Oi&family=Rammetto+One&family=Rubik+Distressed&family=Rubik+Glitch&family=Rubik+Vinyl&family=Wendy+One&display=swap');
+
+
+/* --- Reset : Indispensable pour le "sans bordures" --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Défilement fluide */
+}
+
+body {
+    font-family: Helvetica, Arial, sans-serif; /* Police neutre */
+    background-color: #111; /* Fond sombre par défaut */
+    color: #fff;
+    overflow-x: hidden; /* Empêche le scroll horizontal */
+}
+
+
+
+/* --- Navigation Flottante --- */
+/* Elle reste fixée en haut même quand on scroll */
+
+
+.floating-nav {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%); /* Centrage parfait */
+    background: rgba(255, 255, 255, 0.1); /* Légèrement transparent */
+    backdrop-filter: blur(10px); /* Effet de flou moderne (Glassmorphism) */
+    padding: 15px 30px;
+    border-radius: 50px; /* Forme de pilule */
+    z-index: 1000; /* Toujours au-dessus */
+    display: flex;
+    gap: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.floating-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+    font-family: "Rubik Vinyl", system-ui;
+
+}
+
+.floating-nav a:hover {
+    opacity: 1;
+}
+
+/* --- Section Plein Écran (Hero) --- */
+
+.fullscreen-section {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+
+    /* 1. Fond Noir Profond (pour le contraste max) */
+    background-color: #020205; 
+
+    /* 2. Couleurs Électriques et Haute Opacité (0.7 à 0.8) */
+    background-image: 
+        /* Coin Haut-Gauche : Violet Électrique */
+        radial-gradient(at 0% 0%, rgba(124, 58, 237, 0.8) 0px, transparent 50%),
+        
+        /* Coin Haut-Droit : Bleu Indigo Profond */
+        radial-gradient(at 100% 0%, rgba(67, 56, 202, 0.8) 0px, transparent 50%),
+        
+        /* Coin Bas-Droit : Cyan/Turquoise (le "pop" lumineux) */
+        radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.6) 0px, transparent 50%),
+        
+        /* Coin Bas-Gauche : Fuchsia/Magenta (pour chauffer l'ambiance) */
+        radial-gradient(at 0% 100%, rgba(219, 39, 119, 0.7) 0px, transparent 50%);
+    
+    /* 3. On zoome un peu moins pour que les couleurs soient plus denses */
+    background-size: 120% 120%;
+    
+    /* 4. Animation un peu plus rapide (8s au lieu de 15s) pour plus d'énergie */
+    animation: gradient-move 8s ease infinite alternate;
+}
+
+@keyframes gradient-move {
+    0% {
+        background-position: 0% 0%;
+        filter: hue-rotate(0deg); /* Petite astuce en plus */
+    }
+    100% {
+        background-position: 100% 100%;
+        filter: hue-rotate(15deg); /* Fait légèrement varier la teinte pendant le mouvement */
+    }
+}
+#neuro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Niveau 1 : Au-dessus du fond */
+    pointer-events: none; /* Important : permet de cliquer au travers */
+}
+.hero-content {
+    text-align: center;
+    z-index: 2; /* Au-dessus de l'image de fond */
+    position: relative;
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: 200; /* Fin et élégant */
+    margin-bottom: 20px;
+    font-family: "Fascinate Inline", system-ui;
+}
+
+h2 {
+    font-family: "Rubik Vinyl", system-ui;
+    font-size: 4rem;
+}
+
+.skill-card h3 {
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.6;
+    font-family: "Fascinate", system-ui;
+
+}
+
+/* Petit indicateur de scroll en bas */
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    animation: bounce 2s infinite;
+    font-size: 1.5rem;
+    opacity: 0.5;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-10px);}
+    60% {transform: translateY(-5px);}
+}
+/* --- L'animation "Au fil de l'eau" --- */
+@keyframes water-flow {
+    0% {
+        transform: translate(0px, 0px) rotate(0deg);
+    }
+    33% {
+        /* Dérive à droite, monte un peu, penche légèrement vers la droite */
+        transform: translate(5px, -5px) rotate(2deg);
+    }
+    66% {
+        /* Dérive à gauche, descend un peu, penche vers la gauche */
+        transform: translate(-5px, 5px) rotate(-2deg);
+    }
+    100% {
+        transform: translate(0px, 0px) rotate(0deg);
+    }
+}
+
+.water-flow-card {
+    /* Reprend le style Glassmorphism du .grid-item */
+    background: rgba(255, 255, 255, 0.03); 
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    text-align: center;
+    
+    /* Animation appliquée (utiliser les mêmes classes de durée que pour #work) */
+    animation: water-flow 8s ease-in-out infinite; 
+}
+.water-flow-card:nth-child(1) { animation-delay: 0s;   animation-duration: 11s; }
+.water-flow-card:nth-child(2) { animation-delay: -1s;  animation-duration: 10.5s; }
+.water-flow-card:nth-child(3) { animation-delay: -2s;  animation-duration: 10s; } 
+.water-flow-card:nth-child(4) { animation-delay: -3s;  animation-duration: 9.5s; }
+.water-flow-card:nth-child(5) { animation-delay: -4s; animation-duration: 9s; }
+.water-flow-card:nth-child(6) { animation-delay: -5s;   animation-duration: 8.5s; }
+.water-flow-card:nth-child(7) { animation-delay: -6s;  animation-duration: 8s; }
+.water-flow-card:nth-child(8) { animation-delay: -7s;  animation-duration: 7.5s; } 
+.water-flow-card:nth-child(9) { animation-delay: -8s;  animation-duration: 7s; }
+.water-flow-card:nth-child(10) { animation-delay: -9s; animation-duration: 6.5s; }
+
+.skills-grid {
+    position: relative; 
+    z-index: 2;
+    padding: 20px 0;
+    height: 60vh;
+}
+
+.skill-card {
+    position: absolute; 
+    z-index: 3;
+    width: 80px;
+    height: 80px;
+    font-family: "Limelight", sans-serif;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    overflow: hidden;
+
+    /* ... le reste des styles de carte (background, animation) ... */
+}
+.skill-card:hover {
+    transform: scale(1.05) translate(0, 0) rotate(0) !important; /* Remet à plat et zoome un peu */
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(6, 182, 212, 0.5); /* Bordure Cyan */
+    box-shadow: 0 0 25px rgba(6, 182, 212, 0.3); /* Glow */
+    z-index: 10; /* Passe au-dessus des autres */
+}
+
+#illustrator {
+    top: 45%;
+    left: 7.5%;
+}
+#photoshop {
+    top: 20%;
+    left: 2.5%;
+}
+#after-effect {
+    top: 0%;
+    left: 12.5%;
+}
+#indesign {
+    top: 20%;
+    left: 25%;
+}
+#animate {
+    top: 45%;
+    left: 20%;
+}
+#figma {
+    top: 50%;
+    left: 40%;
+}
+#html {
+    top: 12.5%;
+    left: 62.5%;
+}
+#css {
+    top: -5%;
+    left: 70%;
+}
+#js {
+    top: 20%;
+    left: 72.5%;
+}
+#affinity {
+    top: 55%;
+    left: 50%;
+}
+
+
+/* --- Section Contenu --- */
+.content-section {
+    min-height: 100vh;
+    background-color: #111;
+    padding: 100px 5%; /* Espace pour respirer */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.container h2 {
+    margin-bottom: 50px;
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+/* Grille Asymétrique */
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 50px;
+}
+
+
+/* Créer du rythme visuel : certains blocs sont plus grands */
+.grid-item.large {
+    grid-column: span 2; /* Prend 2 colonnes */
+    aspect-ratio: 16 / 9;
+}
+
+
+
+/* --- Le Style des Cartes (Mis à jour) --- */
+.grid-item {
+    /* Style Verre / Néon conservé */
+    background: rgba(255, 255, 255, 0.03); 
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+    /* Animation appliquée : plus longue (8s) pour que ce soit apaisant */
+    animation: water-flow 8s ease-in-out infinite;
+    
+    /* Autres styles */
+    aspect-ratio: 1 / 1;
+    transition: all 0.8s ease; /* Transition fluide pour le hover */
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Effet au survol : Stabilisation magnétique */
+.grid-item:hover {
+    animation-play-state: paused; /* Stoppe la dérive */
+    transform: scale(1.05) translate(0, 0) rotate(0) !important; /* Remet à plat et zoome un peu */
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(6, 182, 212, 0.5); /* Bordure Cyan */
+    box-shadow: 0 0 25px rgba(6, 182, 212, 0.3); /* Glow */
+    z-index: 10; /* Passe au-dessus des autres */
+    transition: all 0.8s ease;
+}
+
+/* --- Le Chaos Organique (Désynchronisation) --- */
+/* On change les délais ET les durées pour que rien ne soit pareil */
+
+.grid-item:nth-child(1) { animation-delay: 0s;   animation-duration: 8s; }
+.grid-item:nth-child(2) { animation-delay: -2s;  animation-duration: 10s; } /* Plus lent */
+.grid-item:nth-child(3) { animation-delay: -5s;  animation-duration: 7s; }  /* Plus rapide */
+.grid-item:nth-child(4) { animation-delay: -1s;  animation-duration: 9s; }
+.grid-item:nth-child(5) { animation-delay: -3.5s; animation-duration: 8.5s; }
+
+.grid-item img {
+    border-radius: 15px;
+}
+
+#freemessage {
+    padding: 10%;
+}
+
+#exidera {
+    padding: 20%;
+}
+
+/* --- Footer --- */
+footer {
+    padding: 50px;
+    text-align: center;
+    font-size: 0.8rem;
+    opacity: 0.4;
+    border-top: 1px solid #333;
+}
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    .grid-item.large { grid-column: span 1; } /* Tout devient colonne unique */
+    .floating-nav { width: 90%; justify-content: center; font-size: 0.8rem; 
+    }
+    .skills-grid {
+        height: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 15px;
+    }
+    .skill-card {
+        position: static;
+        transform: none !important; /* Annule les transformations */
+        margin: 0 auto;
+        margin-bottom: 15px;
+    }
+}
